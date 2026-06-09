@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-Command flutter -ErrorAction SilentlyContinue)",
+      "PowerShell(cmd /c \"where flutter 2>nul\")",
+      "PowerShell(Test-Path \"C:\\\\Users\\\\shyak\\\\Downloads\\\\\"; [System.IO.Directory]::GetDirectories\\(\"C:\\\\Users\\\\shyak\\\\Downloads\\\\\"\\) | Select-Object -First 10)",
+      "PowerShell(cmd /c \"dir /s /b C:\\\\flutter.bat 2>nul\")",
+      "PowerShell(cmd /c \"dir /s /b C:\\\\dev\\\\flutter.bat 2>nul\")",
+      "PowerShell(cmd /c \"dir /s /b C:\\\\tools\\\\flutter.bat 2>nul\")",
+      "PowerShell($env:PATH -split \";\" | Select-String -Pattern \"flutter\" -SimpleMatch; [System.Environment]::GetEnvironmentVariable\\(\"PATH\", \"User\"\\) -split \";\" | Select-String -Pattern \"flutter\" -SimpleMatch)",
+      "PowerShell(cmd /c \"dir C:\\\\Users\\\\shyak\\\\Downloads\\\\flutter_windows_3.41.9-stable 2>&1\")",
+      "PowerShell(cmd /c \"flutter --version 2>&1\")",
+      "PowerShell($src = \"C:\\\\Users\\\\shyak\\\\Documents\\\\Flutter ALU\\\\hello_world_app\")",
+      "PowerShell($dst = \"C:\\\\Users\\\\shyak\\\\Documents\\\\Flutter ALU\\\\Formative1_Assignment-mobile-dev\")",
+      "PowerShell(winget list flutter 2>$null)"
+    ]
+  }
+}

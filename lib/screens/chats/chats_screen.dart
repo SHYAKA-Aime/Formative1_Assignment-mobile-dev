@@ -148,8 +148,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
         ),
       ),
       floatingActionButton: _NewChatFab(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: const _BottomNav(currentIndex: 2),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }
@@ -445,91 +444,3 @@ class _NewChatFab extends StatelessWidget {
   }
 }
 
-// ─── Bottom Navigation Bar ────────────────────────────────────────────────────
-// Copy this widget once into a shared file (e.g. widgets/bottom_nav.dart)
-// and reuse it across all screens.
-class _BottomNav extends StatelessWidget {
-  final int currentIndex;
-  const _BottomNav({required this.currentIndex});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: kCard,
-        border: Border(top: BorderSide(color: kBorder, width: 1)),
-      ),
-      child: BottomAppBar(
-        color: Colors.transparent,
-        elevation: 0,
-        notchMargin: 8,
-        shape: const CircularNotchedRectangle(),
-        child: SizedBox(
-          height: 60,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              _NavItem(
-                  icon: Icons.home_outlined,
-                  label: 'Home',
-                  selected: currentIndex == 0,
-                  onTap: () => context.go('/home')),
-              _NavItem(
-                  icon: Icons.explore_outlined,
-                  label: 'Explore',
-                  selected: currentIndex == 1,
-                  onTap: () => context.go('/explore')),
-              const SizedBox(width: 48), // FAB gap
-              _NavItem(
-                  icon: Icons.chat_bubble_outline_rounded,
-                  label: 'Chat',
-                  selected: currentIndex == 2,
-                  onTap: () => context.go('/chats')),
-              _NavItem(
-                  icon: Icons.person_outline_rounded,
-                  label: 'Profile',
-                  selected: currentIndex == 3,
-                  onTap: () => context.go('/profile')),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _NavItem extends StatelessWidget {
-  final IconData icon;
-  final String label;
-  final bool selected;
-  final VoidCallback onTap;
-
-  const _NavItem(
-      {required this.icon, required this.label, required this.selected, required this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            icon,
-            color: selected ? kAccentBlue : kTextSecondary,
-            size: 24,
-          ),
-          const SizedBox(height: 2),
-          Text(
-            label,
-            style: TextStyle(
-              color: selected ? kAccentBlue : kTextSecondary,
-              fontSize: 11,
-              fontWeight: selected ? FontWeight.w600 : FontWeight.w400,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}

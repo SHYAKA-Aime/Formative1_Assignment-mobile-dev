@@ -74,7 +74,7 @@ class OnboardingScreen extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-                          context.go('/campus-map');
+                          context.go('/login');
                         },
                         child: const Text(
                           'Sign in with ALU Account',

@@ -1,5 +1,6 @@
 import '../models/event.dart';
 import '../models/community.dart';
+import '../models/faculty.dart';
 
 class MockData {
   MockData._();
@@ -149,6 +150,89 @@ class MockData {
       memberCount: 150,
       isJoined: false,
       isActiveThisWeek: false,
+    ),
+  ];
+
+  static const List<Faculty> faculty = [
+    Faculty(
+      id: 'f1',
+      name: 'Dr. Amina Osei',
+      title: 'Academic Dean',
+      department: 'Leadership Department',
+      campus: 'Kigali',
+      category: 'Academic',
+      departmentTag: 'Leadership',
+      avatarInitials: 'AO',
+    ),
+    Faculty(
+      id: 'f2',
+      name: 'Mr. Kofi Mensah',
+      title: 'Student Affairs Officer',
+      department: 'Student Affairs',
+      campus: 'Mauritius',
+      category: 'Admin',
+      departmentTag: 'Leadership',
+      avatarInitials: 'KM',
+    ),
+    Faculty(
+      id: 'f3',
+      name: 'Ms. Fatima Al-Rashid',
+      title: 'Registry & Admissions',
+      department: 'Administration',
+      campus: 'Kigali',
+      category: 'Admin',
+      departmentTag: 'Registry',
+      avatarInitials: 'FA',
+    ),
+    Faculty(
+      id: 'f4',
+      name: 'Dr. Chidi Okafor',
+      title: 'Tech & Innovation Lead',
+      department: 'Tech Department',
+      campus: 'Kigali',
+      category: 'Academic',
+      departmentTag: 'Tech',
+      avatarInitials: 'CO',
+    ),
+    Faculty(
+      id: 'f5',
+      name: 'Ms. Aisha Kamara',
+      title: 'Finance & Scholarships',
+      department: 'Finance Department',
+      campus: 'Mauritius',
+      category: 'Support',
+      departmentTag: 'Finance',
+      avatarInitials: 'AK',
+    ),
+    Faculty(
+      id: 'f6',
+      name: 'Prof. Jean-Pierre Habimana',
+      title: 'Entrepreneurship Faculty',
+      department: 'Entrepreneurship',
+      campus: 'Kigali',
+      category: 'Academic',
+      departmentTag: 'Entrepreneurship',
+      avatarInitials: 'JH',
+    ),
+    Faculty(
+      id: 'f7',
+      name: 'Dr. Ngozi Adeyemi',
+      title: 'Leadership Coach',
+      department: 'Leadership Department',
+      campus: 'Mauritius',
+      category: 'Academic',
+      departmentTag: 'Leadership',
+      avatarInitials: 'NA',
+    ),
+    Faculty(
+      id: 'f8',
+      name: 'Mr. Samuel Otieno',
+      title: 'IT Support Specialist',
+      department: 'Tech Department',
+      campus: 'Kigali',
+      category: 'Support',
+      departmentTag: 'Tech',
+      avatarInitials: 'SO',
     ),
   ];
 }

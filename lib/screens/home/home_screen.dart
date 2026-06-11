@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+import '../../data/mock_data.dart';
+import '../../models/event.dart';
+import '../../providers/app_provider.dart';
+import '../../theme/app_colors.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,8 +19,95 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SizedBox.expand(),
+    context.watch<AppProvider>();
+    final featured = MockData.events.where((e) => e.isFeatured).toList();
+    final opportunities = MockData.events
+        .where((e) => e.type == 'internship' || e.type == 'program')
+        .toList();
+
+    return Scaffold(
+      backgroundColor: AppColors.background,
+      body: SafeArea(
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(child: _buildTopBar()),
+            const SliverToBoxAdapter(child: SizedBox(height: 20)),
+            SliverToBoxAdapter(child: _buildSearchBar()),
+            const SliverToBoxAdapter(child: SizedBox(height: 16)),
+            SliverToBoxAdapter(child: _buildFilterChips()),
+            const SliverToBoxAdapter(child: SizedBox(height: 24)),
+            SliverToBoxAdapter(child: _buildQuickActions()),
+            const SliverToBoxAdapter(child: SizedBox(height: 28)),
+            if (featured.isNotEmpty) ...[
+              SliverToBoxAdapter(child: _buildSectionLabel('Featured Today')),
+              const SliverToBoxAdapter(child: SizedBox(height: 12)),
+              SliverToBoxAdapter(child: _buildFeaturedCard(featured.first)),
+              const SliverToBoxAdapter(child: SizedBox(height: 28)),
+            ],
+            if (opportunities.isNotEmpty) ...[
+              SliverToBoxAdapter(
+                child: _buildSectionLabel(
+                  'Latest Opportunities',
+                  trailing: 'See all',
+                  onTrailingTap: () => context.go('/explore'),
+                ),
+              ),
+              const SliverToBoxAdapter(child: SizedBox(height: 12)),
+              SliverToBoxAdapter(child: _buildOpportunitiesRow(opportunities)),
+              const SliverToBoxAdapter(child: SizedBox(height: 24)),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildTopBar() {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
+      child: Row(
+        children: [
+          const Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Hi, Amara \u{1F44B}',
+                  style: TextStyle(
+                    color: AppColors.textPrimary,
+                    fontSize: 22,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                SizedBox(height: 2),
+                Text(
+                  "What's on today at ALU Kigali?",
+                  style: TextStyle(color: AppColors.textSecondary, fontSize: 13),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            width: 42,
+            height: 42,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: AppColors.surface,
+              border: Border.all(color: AppColors.border, width: 1.5),
+            ),
+            child: const Center(
+              child: Text(
+                'A',
+                style: TextStyle(
+                  color: AppColors.textPrimary,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 

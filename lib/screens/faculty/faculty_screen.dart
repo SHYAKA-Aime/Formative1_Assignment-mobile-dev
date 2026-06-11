@@ -43,6 +43,7 @@ class _FacultyScreenState extends State<FacultyScreen> {
   @override
   Widget build(BuildContext context) {
     final results = _filtered;
+    
 
     return Scaffold(
       backgroundColor: AppColors.background,

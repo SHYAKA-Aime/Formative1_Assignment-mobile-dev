@@ -375,7 +375,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildOpportunitiesRow(List<Event> opportunities) {
     return SizedBox(
-      height: 130,
+      height: 148,
       child: ListView.separated(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         scrollDirection: Axis.horizontal,
@@ -429,7 +429,7 @@ class _HomeScreenState extends State<HomeScreen> {
               style: const TextStyle(
                   color: AppColors.textSecondary, fontSize: 11),
             ),
-            const Spacer(),
+            const SizedBox(height: 6),
             if ((event.urgencyText ?? event.startsText ?? '').isNotEmpty)
               Row(
                 children: [

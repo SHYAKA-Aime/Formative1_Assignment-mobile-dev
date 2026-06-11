@@ -40,7 +40,7 @@ class ALUConnectApp extends StatelessWidget {
 }
 
 final _router = GoRouter(
-  initialLocation: '/home',
+  initialLocation: '/create-post',
   routes: [
     GoRoute(path: '/login', builder: (_, __) => const LoginScreen()),
 

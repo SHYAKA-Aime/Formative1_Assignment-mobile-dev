@@ -1,7 +1,7 @@
 name: alu_connect
 description: ALU Connect - Student Engagement Platform for African Leadership University
 publish_to: 'none'
-version: 1.0.0+1
+version: 1.0.1+2
 
 environment:
   sdk: ^3.11.5

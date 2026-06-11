@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'providers/app_provider.dart';
 import 'theme/app_theme.dart';
 import 'theme/app_colors.dart';
+import 'screens/onboarding.dart';
 import 'screens/auth/login_screen.dart';
 import 'screens/home/home_screen.dart';
 import 'screens/explore/explore_screen.dart';
@@ -40,23 +41,22 @@ class ALUConnectApp extends StatelessWidget {
 }
 
 final _router = GoRouter(
-  initialLocation: '/home',
+  initialLocation: '/onboarding',
   routes: [
+    GoRoute(path: '/onboarding', builder: (_, __) => const OnboardingScreen()),
     GoRoute(path: '/login', builder: (_, __) => const LoginScreen()),
 
-    // Shell — bottom nav (Home, Explore, Communities)
+    // Shell — bottom nav (Home, Explore, Communities, Chats, Profile)
     ShellRoute(
       builder: (context, state, child) => _Shell(child: child),
       routes: [
         GoRoute(path: '/home', builder: (_, __) => const HomeScreen()),
         GoRoute(path: '/explore', builder: (_, __) => const ExploreScreen()),
         GoRoute(path: '/communities', builder: (_, __) => const CommunitiesScreen()),
+        GoRoute(path: '/chats', builder: (_, __) => const ChatsScreen()),
+        GoRoute(path: '/profile', builder: (_, __) => const ProfileScreen()),
       ],
     ),
-
-    // Standalone screens with their own nav
-    GoRoute(path: '/chats', builder: (_, __) => const ChatsScreen()),
-    GoRoute(path: '/profile', builder: (_, __) => const ProfileScreen()),
 
     // Detail routes (no bottom nav)
     GoRoute(

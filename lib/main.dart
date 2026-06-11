@@ -40,21 +40,23 @@ class ALUConnectApp extends StatelessWidget {
 }
 
 final _router = GoRouter(
-  initialLocation: '/create-post',
+  initialLocation: '/home',
   routes: [
     GoRoute(path: '/login', builder: (_, __) => const LoginScreen()),
 
-    // Shell — bottom nav
+    // Shell — bottom nav (Home, Explore, Communities)
     ShellRoute(
       builder: (context, state, child) => _Shell(child: child),
       routes: [
         GoRoute(path: '/home', builder: (_, __) => const HomeScreen()),
         GoRoute(path: '/explore', builder: (_, __) => const ExploreScreen()),
         GoRoute(path: '/communities', builder: (_, __) => const CommunitiesScreen()),
-        GoRoute(path: '/chats', builder: (_, __) => const ChatsScreen()),
-        GoRoute(path: '/profile', builder: (_, __) => const ProfileScreen()),
       ],
     ),
+
+    // Standalone screens with their own nav
+    GoRoute(path: '/chats', builder: (_, __) => const ChatsScreen()),
+    GoRoute(path: '/profile', builder: (_, __) => const ProfileScreen()),
 
     // Detail routes (no bottom nav)
     GoRoute(
@@ -117,14 +119,17 @@ class _BottomNav extends StatelessWidget {
         children: [
           _NavItem(icon: Icons.home_outlined, activeIcon: Icons.home, label: 'Home', active: currentIndex == 0, onTap: () => onTap(0)),
           _NavItem(icon: Icons.explore_outlined, activeIcon: Icons.explore, label: 'Explore', active: currentIndex == 1, onTap: () => onTap(1)),
-          // Center FAB
+          // Communities — center position, styled as FAB
           GestureDetector(
-            onTap: () => context.push('/create-post'),
+            onTap: () => onTap(2),
             child: Container(
               width: 48,
               height: 48,
-              decoration: const BoxDecoration(color: AppColors.accent, shape: BoxShape.circle),
-              child: const Icon(Icons.add, color: Colors.white, size: 24),
+              decoration: const BoxDecoration(
+                color: AppColors.accent,
+                shape: BoxShape.circle,
+              ),
+              child: const Icon(Icons.people, color: Colors.white, size: 24),
             ),
           ),
           _NavItem(icon: Icons.chat_bubble_outline, activeIcon: Icons.chat_bubble, label: 'Chat', active: currentIndex == 3, onTap: () => onTap(3)),

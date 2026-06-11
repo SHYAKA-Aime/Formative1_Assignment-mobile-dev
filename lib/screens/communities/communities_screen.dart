@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../data/mock_data.dart';
 import '../../models/community.dart';
 import '../../theme/app_colors.dart';
@@ -71,6 +72,11 @@ class _CommunitiesScreenState extends State<CommunitiesScreen>
             child: _buildCommunityList(),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => context.push('/create-post'),
+        backgroundColor: AppColors.accent,
+        child: const Icon(Icons.add, color: Colors.white),
       ),
     );
   }

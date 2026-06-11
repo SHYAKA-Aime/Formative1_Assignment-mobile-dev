@@ -1,4 +1,5 @@
 import '../models/event.dart';
+import '../models/community.dart';
 
 class MockData {
   MockData._();
@@ -7,7 +8,8 @@ class MockData {
     Event(
       id: 'e1',
       title: 'ALU Hackathon 2026 — Build for Africa',
-      description: 'A 48-hour hackathon challenging students to build tech solutions for Africa\'s most pressing problems. Teams of 3–5. Prizes worth \$5,000.',
+      description:
+          'A 48-hour hackathon challenging students to build tech solutions for Africa\'s most pressing problems. Teams of 3–5. Prizes worth \$5,000.',
       type: 'hackathon',
       imageUrl: 'https://picsum.photos/seed/hack2026/800/450',
       date: DateTime(2026, 10, 14),
@@ -26,7 +28,8 @@ class MockData {
     Event(
       id: 'e2',
       title: 'Mastercard Foundation Internship — Apply Now',
-      description: 'Mastercard Foundation is offering paid internships for ALU students across technology, finance, and social impact roles. Applications are open.',
+      description:
+          'Mastercard Foundation is offering paid internships for ALU students across technology, finance, and social impact roles. Applications are open.',
       type: 'internship',
       imageUrl: 'https://picsum.photos/seed/mastercard/800/450',
       date: DateTime(2026, 1, 15),
@@ -41,7 +44,8 @@ class MockData {
     Event(
       id: 'e3',
       title: 'Leadership Bootcamp: Kigali Edition',
-      description: 'An intensive 2-day leadership bootcamp designed to equip ALU students with practical skills for leading teams and driving change in Africa.',
+      description:
+          'An intensive 2-day leadership bootcamp designed to equip ALU students with practical skills for leading teams and driving change in Africa.',
       type: 'leadership',
       imageUrl: 'https://picsum.photos/seed/bootcamp/800/450',
       date: DateTime(2025, 11, 10),
@@ -56,7 +60,8 @@ class MockData {
     Event(
       id: 'e4',
       title: 'UN Youth Delegate Program — Deadline Friday',
-      description: 'Represent Africa at the United Nations Youth Assembly in New York. ALU is selecting 3 delegates for the program. Apply before Friday!',
+      description:
+          'Represent Africa at the United Nations Youth Assembly in New York. ALU is selecting 3 delegates for the program. Apply before Friday!',
       type: 'program',
       imageUrl: 'https://picsum.photos/seed/undel/800/450',
       date: DateTime(2025, 10, 20),
@@ -73,7 +78,8 @@ class MockData {
     Event(
       id: 'e5',
       title: '2026 Leadership & Innovation Summit',
-      description: 'Join the ALU Entrepreneurship Club for a day of high-impact networking and peer-led workshops. We\'ll be exploring the future of tech ecosystems in East Africa with guest speakers from local incubators.',
+      description:
+          'Join the ALU Entrepreneurship Club for a day of high-impact networking and peer-led workshops. We\'ll be exploring the future of tech ecosystems in East Africa with guest speakers from local incubators.',
       type: 'workshop',
       imageUrl: 'https://picsum.photos/seed/summit26/800/450',
       date: DateTime(2026, 6, 14),
@@ -86,6 +92,63 @@ class MockData {
       maxAttendees: 200,
       tags: ['Workshop', 'Entrepreneurship'],
       isFeatured: true,
+    ),
+  ];
+
+  static final List<Community> communities = [
+    Community(
+      id: 'c1',
+      name: 'ALU Debate Society',
+      description: 'Fostering critical thinking',
+      icon: '🎤',
+      memberCount: 120,
+      isJoined: true,
+      isActiveThisWeek: true,
+    ),
+    Community(
+      id: 'c2',
+      name: 'Entrepreneurship Club',
+      description: 'Innovation for Africa',
+      icon: '💡',
+      memberCount: 250,
+      isJoined: false,
+      isActiveThisWeek: true,
+    ),
+    Community(
+      id: 'c3',
+      name: 'Women in Leadership',
+      description: 'Empowering future execs',
+      icon: '👩‍💼',
+      memberCount: 180,
+      isJoined: true,
+      isActiveThisWeek: false,
+    ),
+    Community(
+      id: 'c4',
+      name: 'Tech & Innovation Hub',
+      description: 'Coding the future',
+      icon: '💻',
+      memberCount: 300,
+      isJoined: false,
+      isActiveThisWeek: true,
+    ),
+    Community(
+      id: 'c5',
+      name: 'ALU Climate Action',
+      description: 'Sustainability initiatives',
+      icon: '🌱',
+      memberCount: 95,
+      isJoined: false,
+      isActiveThisWeek: false,
+    ),
+    Community(
+      id: 'c6',
+      name: 'African Arts Collective',
+      description: 'Celebrating creativity',
+      icon: '🎨',
+      memberCount: 150,
+      isJoined: false,
+      isActiveThisWeek: false,
     ),
   ];
 }
